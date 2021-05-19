@@ -165,9 +165,17 @@ button {
 }
 
 .viewing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #395FFB;
+
+    iframe {
+        width: 625px;
+    }
+
     .overlay {
         height: 100vh;
-        width: 100vw;
         display: flex;
         justify-content: center;
         align-items: center;
