@@ -47,9 +47,6 @@ module Kosy.Integration.Figma {
         }
 
         public onClientHasLeft(clientUuid: string) {
-            if (clientUuid === this.initializer.clientUuid && !this.state.gameRoomUrl) {
-                this.kosyApi.stopApp();
-            }
         }
 
         public processMessage(message: AppMessage) {
