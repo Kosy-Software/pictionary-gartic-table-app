@@ -6,6 +6,7 @@ export function renderViewingState(state: ComponentState, dispatch: ((msg: Compo
     let viewingElement = viewingRoot.content.firstElementChild.cloneNode(true) as HTMLElement;
     let iframe = viewingElement.querySelector("iframe") as HTMLIFrameElement;
     iframe.style.height = `100vh`;
+    iframe.style.width = `100vw`;
     iframe.src = `${state.gameRoomUrl}`;
 
     return viewingElement;
