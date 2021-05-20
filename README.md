@@ -1,4 +1,4 @@
-# figma-table-app
+# pictionary-gartic-table-app
 Table app for Gartic (pictionary style game) integration
 
 ## Debugging tool
