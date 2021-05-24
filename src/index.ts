@@ -7,16 +7,17 @@ import { isValidGameRoomUrl } from './lib/validation';
 import { ClientInfo } from '@kosy/kosy-app-api/types';
 import { KosyApi } from '@kosy/kosy-app-api';
 
-module Kosy.Integration.Figma {
+module Kosy.Integration.Gartic {
     export class App {
         private state: AppState = { gameRoomUrl: null };
         private initializer: ClientInfo;
         private currentClient: ClientInfo;
 
-        private kosyApi = new KosyApi<AppState, AppMessage>({
+        private kosyApi = new KosyApi<AppState, AppMessage, AppMessage>({
             onClientHasJoined: (client) => this.onClientHasJoined(client),
             onClientHasLeft: (clientUuid) => this.onClientHasLeft(clientUuid),
-            onReceiveMessage: (message) => this.processMessage(message),
+            onReceiveMessageAsClient: (message) => this.processMessage(message),
+            onReceiveMessageAsHost: (message) => message,
             onRequestState: () => this.getState(),
             onProvideState: (newState: AppState) => this.setState(newState)
         })
