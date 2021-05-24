@@ -9,5 +9,15 @@ export function renderViewingState(state: ComponentState, dispatch: ((msg: Compo
     iframe.style.width = `100vw`;
     iframe.src = `${state.gameRoomUrl}`;
 
+    if (state.currentClient.clientUuid == state.initializer.clientUuid) {
+        let dialog = viewingElement.querySelector("#dialog") as HTMLElement;
+        dialog.style.display = 'flex';
+        let closeBtn = dialog.querySelector("button") as HTMLButtonElement;
+
+        closeBtn.onclick = (event: Event) => {
+            dialog.style.display = 'none'
+        };
+    }
+
     return viewingElement;
 }
